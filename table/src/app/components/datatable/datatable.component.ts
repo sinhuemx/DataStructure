@@ -13,14 +13,11 @@ export class DatatableComponent implements OnInit {
 
 
   constructor() {
-    this.users = data
+    this.users = (data as any).default;
   }
 
   ngOnInit(): void {
-
+    console.log(this.users);
   }
-
-
-
 
 }
