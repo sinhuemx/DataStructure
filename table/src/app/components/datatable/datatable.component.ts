@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/user.mode';
 import  * as data from '../../../assets/data/sample_data.json';
+import { TableService } from "../../services/table.service";
 
 @Component({
   selector: 'app-datatable',
@@ -12,11 +13,21 @@ export class DatatableComponent implements OnInit {
   public users: User[];
   public sliceNumber: number;
 
-  constructor() {}
+  constructor(private tableService: TableService) {}
 
   ngOnInit(): void {
-    this.users = (data as any).default;
+    this.setUsersData();
+  }
+
+  /**
+   * Sets the retrieved users data into a local variable to be placed in the HTML
+   */
+  setUsersData() {
+    // this.users = (data as any).default;
     this.sliceNumber = 15;
+    this.tableService.getUsersData().subscribe((result) => {
+      this.users = result;
+    });
   }
 
   /**
