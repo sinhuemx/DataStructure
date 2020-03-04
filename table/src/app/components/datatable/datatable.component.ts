@@ -10,14 +10,12 @@ import  * as data from '../../../assets/data/sample_data.json';
 export class DatatableComponent implements OnInit {
 
   public users: User[];
-
   public sliceNumber: number;
 
-  constructor() {
-    this.users = (data as any).default;
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    this.users = (data as any).default;
     this.sliceNumber = 15;
   }
 
@@ -38,6 +36,10 @@ export class DatatableComponent implements OnInit {
     this.users.splice(indexToRemove, 1);
   }
 
+  /**
+   * Sets the number of items that the user wants to show in the table.
+   * @param numberOfItems Items to be shown in the table
+   */
   onSlice(numberOfItems) {
     this.sliceNumber = numberOfItems;
   }
