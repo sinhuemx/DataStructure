@@ -1,3 +1,13 @@
+<div class="get-rows-container">
+  <input
+  #rowsNumber
+  [(ngModel)]="sliceNumber"
+  name="rowsNumber"
+  class="rows-to-show"
+  type="number"
+  placeholder="Rows to show" />
+  <button class="btn show-rows" (click)="onSlice(rowsNumber.value)">Show Rows</button>
+</div>
 <table>
   <caption>
     DataTable
@@ -11,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | slice:0:(sliceNumber) ? sliceNumber : 15">
       <td scope="row" data-label="Name">{{ user.name }}</td>
       <td data-label="Email">{{ user.email }}</td>
       <td data-label="Phone">{{ user.phone }}</td>

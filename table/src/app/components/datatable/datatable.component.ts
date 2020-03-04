@@ -9,13 +9,16 @@ import  * as data from '../../../assets/data/sample_data.json';
 })
 export class DatatableComponent implements OnInit {
 
-  users: User[];
+  public users: User[];
+
+  public sliceNumber: number;
 
   constructor() {
     this.users = (data as any).default;
   }
 
   ngOnInit(): void {
+    this.sliceNumber = 15;
   }
 
   /**
@@ -33,6 +36,10 @@ export class DatatableComponent implements OnInit {
   removeUser(userId: number) {
     let indexToRemove = this.users.findIndex((user) => user.id === userId);
     this.users.splice(indexToRemove, 1);
+  }
+
+  onSlice(numberOfItems) {
+    this.sliceNumber = numberOfItems;
   }
 
 }
