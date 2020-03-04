@@ -11,13 +11,28 @@ export class DatatableComponent implements OnInit {
 
   users: User[];
 
-
   constructor() {
     this.users = (data as any).default;
   }
 
   ngOnInit(): void {
-    console.log(this.users);
+  }
+
+  /**
+   * Adds an user to the users array
+   * @param itemData item to be added
+   */
+  addUser(itemData: User) {
+    this.users.push(itemData);
+  }
+
+  /**
+   * Removes a user based on the given id
+   * @param userId Id of the user to be removed
+   */
+  removeUser(userId: number) {
+    let indexToRemove = this.users.findIndex((user) => user.id === userId);
+    this.users.splice(indexToRemove, 1);
   }
 
 }
