@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
+import { TableService } from './services/table.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { DatatableComponent } from './components/datatable/datatable.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DatatableComponent } from './datatable.component';
+import { TableService } from 'src/app/services/table.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
@@ -8,7 +9,9 @@ describe('DatatableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DatatableComponent ]
+      imports: [HttpClientModule],
+      declarations: [ DatatableComponent ],
+      providers: [TableService]
     })
     .compileComponents();
   }));
