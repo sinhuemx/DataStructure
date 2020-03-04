@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/user.mode';
+import  * as data from '../../../assets/data/sample_data.json';
 
 @Component({
   selector: 'app-datatable',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatatableComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+
+
+  constructor() {
+    this.users = data
+  }
 
   ngOnInit(): void {
+
   }
+
+
+
 
 }
